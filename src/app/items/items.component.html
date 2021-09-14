@@ -1,0 +1,11 @@
+<form [formGroup]="ordersForm" (ngSubmit)="submit()">
+    <div>Example of - FormArray with FormBuilder</div>
+    <div formArrayName="orders" 
+    *ngFor="let order of orders.controls;let i=index"
+    >
+    <input type="checkbox" [formControlName]="i">
+        {{ordersData[i].name}}
+</div>
+<div *ngIf="ordersForm.controls['orders'].errors && ordersForm.controls['orders'].errors.requireCheckboxesToBeChecked">At least one checkbox is required to check</div>
+<button>Submit</button>
+</form>
